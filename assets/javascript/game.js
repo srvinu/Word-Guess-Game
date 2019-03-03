@@ -43,12 +43,6 @@ var displayDashes = function () {
 }
 //Function to Display Dashes when window loads
 window.onload = function (){
-    // restartGame();
-    if (typeof(Storage) !== "undefined") {
-      sessionStorage.clear();
-      sessionStorage.wincount = 0;
-      sessionStorage.losecount = 0;
-    }
     displayDashes();
     document.getElementById("wins").innerHTML =  sessionStorage.wincount;
     document.getElementById("lost").innerHTML =  sessionStorage.losecount;
