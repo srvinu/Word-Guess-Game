@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/sytle.css">
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+<body>
+  <div class="jumbotron">
+    <h1 class="display-5">Word Guess Game</h1><br><br>
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-12 col-md-12 col-sm-12 col-lg-12">
+    <button type="button" id="restartbutton" class="btn btn-warning" style="display: none" onclick="restartGame()">Restart Game</button>
+            </div>
+          <div class="col-12 col-md-12 col-sm-12 col-lg-12">
+            <h1 class="display-3" id="gameover" style="display: none"> GAME OVER !!</h1>
+          </div>
+          <div class="col-12 col-md-12 col-sm-12 col-lg-12">
+                  <h1 class="display-6" id="youWon" style="display: none"> Congragulations !! You Won !!<br> Click Restart to if you want to play agin.</h1>
+                </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="container-fluid">
+      <div class="row">
+            <div class="col-6 col-md-6 col-sm-6 col-lg-6">
+                  <div class="jumbotron">
+                        <h3>Guess This Animal : </h3>
+                        <h3 id=dashes> </h3>
+                        <br><br>
+                        <button type="button" class="btn btn-primary btn-sm" id="hint" onclick="getHint()"> Hint </button>
+                        <p id="giveMeAHint"></p>
+                  </div>
+            </div>
+            <div class="col-6 col-md-6 col-sm-6 col-lg-6">
+                        <div class="jumbotron">
+                              <h3>Number of Guesses: </h3>
+                              <p id=numOfGuesses>10</p>
+                              <h3>Letters Guessed: </h3>
+                              <!-- <input type="text" id="letsGuess" size="40" style="display: block;" onkeydown="myFunction(event)"> -->
+                              <input class="form-control-lg" id="letsGuess" style="display: block;" onkeydown="mainFunction(event)">
+                              <p id=lettersGuessed></p>
+                        </div>
+                  </div>
+      </div>
+</div>
+<div class="container-fluid">
+            <div class="row">
+                  <div class="col-6 col-md-6 col-sm-6 col-lg-6">
+                        <div class="jumbotron">
+                              <h3>Wins :</h3>
+                              <h3 id=wins> </h3>
+                        </div>
+                  </div>
+                  <div class="col-6 col-md-6 col-sm-6 col-lg-6">
+                              <div class="jumbotron">
+                                    <h3>Lost : </h3>
+                                    <h3 id=lost></h3>
+                              </div>
+                        </div>
+            </div>
+      </div>
+
+
+</body>
+<!-- <script>
+document.onkeyup = function(event) {
+  document.getElementById(lettersGuessed).innerHTML = "ev";
+
+}
+</script> -->
+</html>
