@@ -26,7 +26,6 @@ var scoreLost = 0;
 var validGuesses = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
 
 
-
 //Display DASHES to the id dashes
 var displayDashes = function () {
   for ( var i = 0; i < wordLength; i++ ){
@@ -40,10 +39,17 @@ var displayDashes = function () {
   document.getElementById("dashes").innerHTML = dashDisplayer;
   underscoreDasher = [];
   dashDisplayer = "";
+
 }
 //Function to Display Dashes when window loads
-window.onload = function (){
+window.onload = function () {
     displayDashes();
+    if (!sessionStorage.wincount){
+      sessionStorage.wincount = "0"
+    }
+    if (!sessionStorage.losecount){
+      sessionStorage.losecount = "0"
+    }
     document.getElementById("wins").innerHTML =  sessionStorage.wincount;
     document.getElementById("lost").innerHTML =  sessionStorage.losecount;
     if ( sessionStorage.losecount == "3" ){
@@ -71,6 +77,7 @@ window.onload = function (){
       }
     }
 }
+
 //Function to key event
 function mainFunction(event) {
   var x = event.key;
