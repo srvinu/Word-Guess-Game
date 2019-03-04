@@ -63,6 +63,10 @@ window.onload = function () {
       if (document.getElementById("restartbutton").style.display = "none") {
         document.getElementById("restartbutton").style.display = "block";
       }
+      if (document.getElementById("title").style.display = "block") {
+        document.getElementById("title").style.display = "none";
+      }
+
     }
     if ( sessionStorage.wincount == 3 ){
       alert("youwon")
@@ -74,6 +78,9 @@ window.onload = function () {
       }
       if (document.getElementById("restartbutton").style.display = "none") {
         document.getElementById("restartbutton").style.display = "block";
+      }
+      if (document.getElementById("title").style.display = "block") {
+        document.getElementById("title").style.display = "none";
       }
     }
 }
@@ -96,7 +103,11 @@ function mainFunction(event) {
       dash = document.getElementById("dashes").innerHTML
       dash = dash.slice(0, ndx) + usrLetter + dash.slice(ndx + 1, dash.length);
       document.getElementById("dashes").innerHTML = dash;
-      wordCounter++;
+      if (checkRepeat(x) == false){
+        console.log("do nothing")
+      } else {
+        wordCounter++;
+      }
     }
      else {
        console.log("dont do anything");
@@ -106,8 +117,12 @@ function mainFunction(event) {
      }
 
   }
-  numGuesses--;
-  document.getElementById("numOfGuesses").innerHTML = numGuesses;
+  if (checkRepeat(x) == false){
+    console.log("do nothing")
+      } else {
+        numGuesses--;
+        document.getElementById("numOfGuesses").innerHTML = numGuesses;
+      }
   // alert(numGuesses)
 
   if (wordCounter === wordLength ){
@@ -153,4 +168,14 @@ function getHint(){
   var hintIdx = wordArray.indexOf(randWord);
   console.log(hintIdx);
   document.getElementById("giveMeAHint").innerHTML = HintArray[hintIdx];
+}
+function checkRepeat(keyPresses) {
+  var letterInBox = document.getElementById("letsGuess").value;
+    // console.log("key -->" +keyPresses);
+  for (var z = 0; z < letterInBox.length; z++ ){
+    if (keyPresses == letterInBox[z]) {
+      // console.log("duplicate letter--> "+ keyPresses);
+      return false;
+    }
+  }
 }

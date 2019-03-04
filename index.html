@@ -5,7 +5,7 @@
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 <body>
   <div class="jumbotron">
-    <h1 class="display-5">Word Guess Game</h1><br><br>
+    <h1 class="display-5" id="title" style="text-align:center; display: block; color: orange">Word Guess Game</h1><br><br>
     <div class="container-fluid">
       <div class="row">
           <div class="col-12 col-md-12 col-sm-12 col-lg-12">
@@ -34,7 +34,7 @@
             </div>
             <div class="col-6 col-md-6 col-sm-6 col-lg-6">
                         <div class="jumbotron">
-                              <h3>Number of Guesses: </h3>
+                              <h3>Number of Guesses Left: </h3>
                               <p id=numOfGuesses>10</p>
                               <h3>Letters Guessed: </h3>
                               <!-- <input type="text" id="letsGuess" size="40" style="display: block;" onkeydown="myFunction(event)"> -->
@@ -63,10 +63,4 @@
 
 
 </body>
-<!-- <script>
-document.onkeyup = function(event) {
-  document.getElementById(lettersGuessed).innerHTML = "ev";
-
-}
-</script> -->
 </html>
