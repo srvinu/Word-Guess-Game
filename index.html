@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/sytle.css">
+<!-- <link rel="stylesheet" href="assets/css/sytle.css"> -->
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 <body>
-  <div class="jumbotron">
-    <h1 class="display-5" id="title" style="text-align:center; display: block; color: orange">Word Guess Game</h1><br><br>
+  <div class="jumbotron" style="padding: 1rem 0rem; margin-bottom: 1rem">
+    <h1 class="display-5" id="title" style="text-align:center; display: block; color: orange">Word Guess Game</h1><br>
+    <button type="button" class="btn btn-primary btn-sm" style="background: #073642; color: orange" id="rules" onclick="getRules()"> Game Rules </button>
     <div class="container-fluid">
       <div class="row">
           <div class="col-12 col-md-12 col-sm-12 col-lg-12">
-    <button type="button" id="restartbutton" class="btn btn-warning" style="display: none" onclick="restartGame()">Restart Game</button>
+            <button type="button" id="restartbutton" class="btn btn-warning" style="display: none" onclick="restartGame()">Restart Game</button>
             </div>
           <div class="col-12 col-md-12 col-sm-12 col-lg-12">
             <h1 class="display-3" id="gameover" style="display: none"> GAME OVER !!</h1>

@@ -1,9 +1,7 @@
-// window.onload = function (){
-//   document.getElementById("dashes").innerHTML = "testing";
-// }
+
 //initial Variables
-var wordArray = ["CAT", "DOG", "LION", "TIGER", "LEOPARD", "BEAR", "CAMEL", "PANDA", "ZEBRA", "PIG", "Elephant"];
-var HintArray = ["Meow", "Woof Woof", "King of the Jungle", "Roar", "Roar with Dots", "Growl", "Hump on my Back", "Cute Fluffy Black and White", "B&W Stripes", "Oink", "Trumpet"]
+var wordArray = ["CAT", "DOG", "LION", "TIGER", "LEOPARD", "BEAR", "CAMEL", "ZEBRA", "PIG", "MONKEY"];
+var HintArray = ["Meow", "Woof Woof", "King of the Jungle", "Roar", "Roar with Dots", "Growl", "Hump on my Back", "B&W Stripes", "Oink", "Live in Trees"]
 var randWord = wordArray[Math.floor(Math.random() * wordArray.length)];
 // console.log("Random Word : " +randWord);
 var wordLength = randWord.length;
@@ -23,7 +21,7 @@ var scoreLost = 0;
 // console.log(latestWinScore)
 // var storeWin = sessionStorage.setItem("winScore", latestWinScore)
 // var getLatesWinScore = sessionStorage.getItem("winScore");
-var validGuesses = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
+var validGuesses = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 
 
 //Display DASHES to the id dashes
@@ -66,6 +64,9 @@ window.onload = function () {
       if (document.getElementById("title").style.display = "block") {
         document.getElementById("title").style.display = "none";
       }
+      if (document.getElementById("rules").style.display = "block") {
+        document.getElementById("rules").style.display = "none";
+      }
 
     }
     if ( sessionStorage.wincount == 3 ){
@@ -82,10 +83,13 @@ window.onload = function () {
       if (document.getElementById("title").style.display = "block") {
         document.getElementById("title").style.display = "none";
       }
+      if (document.getElementById("rules").style.display = "block") {
+        document.getElementById("rules").style.display = "none";
+      }
     }
 }
 
-//Function to key event
+//Main Function for key event
 function mainFunction(event) {
   var x = event.key;
   if (!validGuesses.includes(x)){
@@ -155,6 +159,7 @@ function mainFunction(event) {
 
   }
 }
+// Function "Restart Game" Button
 function restartGame() {
   if (typeof(Storage) !== "undefined") {
     sessionStorage.clear();
@@ -164,11 +169,13 @@ function restartGame() {
   location.reload();
 
 }
+// Function "Hint" Button
 function getHint(){
   var hintIdx = wordArray.indexOf(randWord);
   console.log(hintIdx);
   document.getElementById("giveMeAHint").innerHTML = HintArray[hintIdx];
 }
+// Avoid Duplicate Chars
 function checkRepeat(keyPresses) {
   var letterInBox = document.getElementById("letsGuess").value;
     // console.log("key -->" +keyPresses);
@@ -178,4 +185,9 @@ function checkRepeat(keyPresses) {
       return false;
     }
   }
+}
+//Get Rule of the Game Button click
+
+function getRules() {
+    alert ("Rules of Game: \n 1.    You have 10 Key Stroke Guesses (Alphabets Only). \n 2.    Game Over when you lose 3 times. \n 3.    You Complete the game, when you win 3 times. \n 4.    Use Hint button if you need help. \n 5.    Restart the game when you lose 3 times or win 3 times. \n 	      Restart Button will appear upon completion.")
 }
